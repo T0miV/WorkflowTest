@@ -8,7 +8,7 @@ namespace WorkflowTest
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            Console.WriteLine("hello");
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
