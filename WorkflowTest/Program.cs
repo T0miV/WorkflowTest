@@ -8,8 +8,6 @@ namespace WorkflowTest
             var builder = WebApplication.CreateBuilder(args);
 
 
-            // Add services to the container.
-            Console.WriteLine("hello"); 
 
             // Add services to the container. 
 
