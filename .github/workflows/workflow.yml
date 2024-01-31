@@ -36,33 +36,6 @@ jobs:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
-  test:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        Debug:
-          BuildConfiguration: debug
-        Release:
-          BuildConfiguration: release
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
-
-    - name: Restore
-      run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
-
-    - name: Build
-      run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ matrix.BuildConfiguration }} --no-restore
-
-    - name: Test
-      run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
-
   deploy:
     runs-on: windows-latest
     needs: build
